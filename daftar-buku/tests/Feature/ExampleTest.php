@@ -2,18 +2,24 @@
 
 namespace Tests\Feature;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     */
-    public function test_the_application_returns_a_successful_response(): void
-    {
-        $response = $this->get('/');
+    use RefreshDatabase;
 
-        $response->assertStatus(200);
+    public function test_root_redirects_to_book_list(): void
+    {
+        $this->get('/')
+            ->assertRedirect('/buku');
+    }
+
+    public function test_book_list_can_be_opened(): void
+    {
+        $this->withoutVite();
+
+        $this->get('/buku')
+            ->assertOk();
     }
 }

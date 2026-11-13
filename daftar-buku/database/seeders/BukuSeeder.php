@@ -49,7 +49,10 @@ class BukuSeeder extends Seeder
         ];
 
         foreach ($data as $buku) {
-            Buku::create($buku);
+            Buku::updateOrCreate(
+                ['judul' => $buku['judul']],
+                $buku
+            );
         }
     }
 }

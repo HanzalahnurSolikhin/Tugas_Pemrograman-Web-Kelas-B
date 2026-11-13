@@ -13,7 +13,7 @@
         <form
             action="{{ route('buku.index') }}"
             method="GET"
-            class="flex gap-2"
+            class="flex w-full sm:w-auto gap-2"
         >
 
             <input
@@ -21,7 +21,7 @@
                 name="cari"
                 value="{{ $cari }}"
                 placeholder="Cari judul atau penulis..."
-                class="w-64 rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                class="w-full min-w-0 sm:w-64 rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
 
             <button
@@ -34,9 +34,9 @@
 
     </div>
 
-    <div class="bg-white rounded-xl shadow overflow-hidden">
+    <div class="bg-white rounded-xl shadow overflow-x-auto">
 
-        <table class="w-full text-left">
+        <table class="w-full min-w-[640px] text-left">
 
             <thead class="bg-slate-50 text-sm uppercase text-slate-500">
 
